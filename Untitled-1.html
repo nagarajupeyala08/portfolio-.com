@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAGARAJU PEYYALA - Portfolio</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    nav ul li a {
+      color: #fff;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #00aaff;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    /* Home Section */
+    #home {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #007acc;
+      color: #fff;
+      border-radius: 8px;
+    }
+    #home h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    #home h2 {
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    #home .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #fff;
+      color: #007acc;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #005f99;
+      color: #fff;
+    }
+    /* About Section */
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    #about .profile-pic {
+      flex: 1 1 250px;
+      max-width: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #about .profile-pic img {
+      width: 100%;
+      display: block;
+    }
+    #about .intro {
+      flex: 2 1 400px;
+    }
+    #about .intro h3 {
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+      color: #007acc;
+    }
+    #about .intro p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #333;
+    }
+    #about .details {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    #about .details strong {
+      display: inline-block;
+      width: 140px;
+      color: #007acc;
+    }
+    #about .quote {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: #444;
+      border-left: 4px solid #007acc;
+      padding-left: 1rem;
+    }
+    /* Skills Section */
+    #skills {
+      background: #e6f0ff;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+    }
+    #skills h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #007acc;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .skill {
+      background: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-weight: 600;
+      color: #007acc;
+      min-width: 100px;
+      text-align: center;
+      user-select: none;
+    }
+    /* Projects Section */
+    #projects h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #007acc;
+    }
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+    }
+    .project {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project h3 {
+      margin-bottom: 0.5rem;
+      color: #007acc;
+    }
+    .project p {
+      flex-grow: 1;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .project-tech {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .project a {
+      align-self: flex-start;
+      background: #007acc;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+    .project a:hover {
+      background: #005f99;
+    }
+    /* Contact Section */
+    #contact h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #007acc;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #007acc;
+    }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form button {
+      background: #007acc;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #005f99;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 1rem;
+      background: #222;
+      color: #fff;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      #about {
+        flex-direction: column;
+        text-align: center;
+      }
+      #about .intro {
+        flex: unset;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">NAGARAJU PEYYALA</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" aria-label="Home introduction">
+      <h1>I DESIGN &amp; BUILD BRANDS</h1>
+      <h2>Hi, NAGARAJU PEYYALA</h2>
+      <p>I build responsive &amp; modern websites.</p>
+      <div class="btn-group">
+        <a href="#contact" class="btn" role="button">Hire me</a>
+        <a href="Nagaraju_Peyyala_CV.pdf" class="btn" role="button" download>Download CV</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" aria-label="About me">
+      <div class="profile-pic">
+        <img src="profile-picture.jpg" alt="Profile picture of Nagaraju Peyyala" />
+      </div>
+      <div class="intro">
+        <h3>MY INTRODUCTION</h3>
+        <p><strong>About Me</strong><br />
+          I'm Nagaraju Peyyala, a java developer from Andhra Pradesh with a strong foundation in Java. I specialize in building robust, scalable server-side applications using Java, Spring Framework, and Hibernate, with proficiency in both SQL (MySQL) and NoSQL (MongoDB) databases. Alongside backend development, I have frontend skills in HTML, CSS, and JavaScript, enabling me to contribute to full-stack projects. I'm eager to grow in a tech-driven environment, collaborate with like-minded developers, and keep learning every day.</p>
+        <p class="quote">“Clean code is the poetry of logic — simple, powerful, and built to last.”</p>
+        <div class="details">
+          <p><strong>Name:</strong> Nagaraju Peyyala</p>
+          <p><strong>Date of birth:</strong> December 08, 2002</p>
+          <p><strong>Address:</strong> podili, Andhra Pradesh, India</p>
+          <p><strong>Zip code:</strong> 523240</p>
+          <p><strong>Email:</strong> <a href="mailto:nagarajupeyala08@gmail.com">your.nagarajupeyala08@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+918309700150">+91-8688155694</a></p>
+        </div>
+        <p><strong>Interests:</strong> Music, Travel, Movie</p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" aria-label="My skills">
+      <h2>My Skills</h2>
+      <div class="skills-list">
+        <div class="skill">Java</div>
+        <div class="skill">Spring</div>
+        <div class="skill">Hibernate</div>
+        <div class="skill">SQL</div>
+        <div class="skill">MongoDB</div>
+        <div class="skill">Python</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Git</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Postman</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" aria-label="My projects">
+      <h2>My Projects</h2>
+      <div class="project-list">
+        <article class="project">
+          <h3>Project 1: Smart AI Research Assistant</h3>
+          <p class="project-tech">Spring Boot, RESTful API, HTML, CSS, JavaScript</p>
+          <a href="#" aria-label="View Project 1 details">View Project</a>
+        </article>
+        <article class="project">
+          <h3>Project 2: AI-Powered Face Recognition System with Humanoid Robot</h3>
+          <p class="project-tech">Python, OpenCV, Numpy, Pandas, AiNex Robot</p>
+          <a href="#" aria-label="View Project 2 details">View Project</a>
+        </article>
+        <article class="project">
+          <h3>Project 3: FrontEnd Projects</h3>
+          <p class="project-tech">HTML, CSS, JS</p>
+          <a href="#" aria-label="View Project 3 details">View Project</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" aria-label="Contact me">
+      <h2>Get In Touch</h2>
+      <form action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Write your message here"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>NAGARAJU PEYYALA - Coding the brains behind the interface 🧠💻</p>
+    <p>© 2025 Nagaraju Peyyala. All rights reserved.</p>
+  </footer>
+</body>
+</html>
